@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  BasicsExample.swift
 //  Examples
 //
 //  Created by Roy Hsu on 2020/3/27.
@@ -10,7 +10,7 @@ import SwiftUI
 import TinyConsole
 import TinyConsoleCore
 
-struct ContentView: View {
+struct BasicsExample: View {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
   
@@ -18,7 +18,6 @@ struct ContentView: View {
     Console {
       LogInput(log: log)
     }
-      .environmentObject(logging)
   }
   
   private func log(message: String) { logging.write(message) }
@@ -28,7 +27,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    BasicsExample()
       .environmentObject(ConsoleLoggingStore())
   }
 }

@@ -9,26 +9,33 @@
 /* Begin PBXBuildFile section */
 		B082E658242E3091007B4E8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E657242E3091007B4E8B /* AppDelegate.swift */; };
 		B082E65A242E3091007B4E8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E659242E3091007B4E8B /* SceneDelegate.swift */; };
-		B082E65C242E3091007B4E8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E65B242E3091007B4E8B /* ContentView.swift */; };
 		B082E65E242E3094007B4E8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B082E65D242E3094007B4E8B /* Assets.xcassets */; };
 		B082E661242E3094007B4E8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B082E660242E3094007B4E8B /* Preview Assets.xcassets */; };
 		B082E664242E3094007B4E8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B082E662242E3094007B4E8B /* LaunchScreen.storyboard */; };
 		B082E66E242E31CF007B4E8B /* TinyConsole in Frameworks */ = {isa = PBXBuildFile; productRef = B082E66D242E31CF007B4E8B /* TinyConsole */; };
 		B082E670242E31CF007B4E8B /* TinyConsoleCore in Frameworks */ = {isa = PBXBuildFile; productRef = B082E66F242E31CF007B4E8B /* TinyConsoleCore */; };
 		B082E672242E3B33007B4E8B /* LogInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E671242E3B33007B4E8B /* LogInput.swift */; };
+		B082E676242E50A9007B4E8B /* IntegrateSwiftLogExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E675242E50A9007B4E8B /* IntegrateSwiftLogExample.swift */; };
+		B082E678242E50F2007B4E8B /* TinyConsoleCoreSwiftLog in Frameworks */ = {isa = PBXBuildFile; productRef = B082E677242E50F2007B4E8B /* TinyConsoleCoreSwiftLog */; };
+		B082E67A242E53B3007B4E8B /* BasicsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E679242E53B3007B4E8B /* BasicsExample.swift */; };
+		B082E67C242E54CE007B4E8B /* AllExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E67B242E54CE007B4E8B /* AllExamples.swift */; };
+		B082E67E242E57E6007B4E8B /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E67D242E57E6007B4E8B /* Example.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B082E654242E3091007B4E8B /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B082E657242E3091007B4E8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B082E659242E3091007B4E8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B082E65B242E3091007B4E8B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B082E65D242E3094007B4E8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B082E660242E3094007B4E8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B082E663242E3094007B4E8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B082E665242E3094007B4E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B082E671242E3B33007B4E8B /* LogInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInput.swift; sourceTree = "<group>"; };
-		B082E673242E4456007B4E8B /* tiny-console */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "tiny-console"; sourceTree = "<group>"; };
+		B082E674242E5056007B4E8B /* tiny-console */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "tiny-console"; sourceTree = "<group>"; };
+		B082E675242E50A9007B4E8B /* IntegrateSwiftLogExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrateSwiftLogExample.swift; sourceTree = "<group>"; };
+		B082E679242E53B3007B4E8B /* BasicsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicsExample.swift; sourceTree = "<group>"; };
+		B082E67B242E54CE007B4E8B /* AllExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExamples.swift; sourceTree = "<group>"; };
+		B082E67D242E57E6007B4E8B /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +45,7 @@
 			files = (
 				B082E66E242E31CF007B4E8B /* TinyConsole in Frameworks */,
 				B082E670242E31CF007B4E8B /* TinyConsoleCore in Frameworks */,
+				B082E678242E50F2007B4E8B /* TinyConsoleCoreSwiftLog in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,7 +55,7 @@
 		B082E64B242E3091007B4E8B = {
 			isa = PBXGroup;
 			children = (
-				B082E673242E4456007B4E8B /* tiny-console */,
+				B082E674242E5056007B4E8B /* tiny-console */,
 				B082E656242E3091007B4E8B /* Examples */,
 				B082E655242E3091007B4E8B /* Products */,
 				B082E66C242E31CF007B4E8B /* Frameworks */,
@@ -67,8 +75,11 @@
 			children = (
 				B082E657242E3091007B4E8B /* AppDelegate.swift */,
 				B082E659242E3091007B4E8B /* SceneDelegate.swift */,
+				B082E67D242E57E6007B4E8B /* Example.swift */,
+				B082E67B242E54CE007B4E8B /* AllExamples.swift */,
 				B082E671242E3B33007B4E8B /* LogInput.swift */,
-				B082E65B242E3091007B4E8B /* ContentView.swift */,
+				B082E679242E53B3007B4E8B /* BasicsExample.swift */,
+				B082E675242E50A9007B4E8B /* IntegrateSwiftLogExample.swift */,
 				B082E65D242E3094007B4E8B /* Assets.xcassets */,
 				B082E662242E3094007B4E8B /* LaunchScreen.storyboard */,
 				B082E665242E3094007B4E8B /* Info.plist */,
@@ -111,6 +122,7 @@
 			packageProductDependencies = (
 				B082E66D242E31CF007B4E8B /* TinyConsole */,
 				B082E66F242E31CF007B4E8B /* TinyConsoleCore */,
+				B082E677242E50F2007B4E8B /* TinyConsoleCoreSwiftLog */,
 			);
 			productName = Examples;
 			productReference = B082E654242E3091007B4E8B /* Examples.app */;
@@ -168,9 +180,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B082E658242E3091007B4E8B /* AppDelegate.swift in Sources */,
+				B082E67E242E57E6007B4E8B /* Example.swift in Sources */,
 				B082E65A242E3091007B4E8B /* SceneDelegate.swift in Sources */,
-				B082E65C242E3091007B4E8B /* ContentView.swift in Sources */,
+				B082E676242E50A9007B4E8B /* IntegrateSwiftLogExample.swift in Sources */,
 				B082E672242E3B33007B4E8B /* LogInput.swift in Sources */,
+				B082E67C242E54CE007B4E8B /* AllExamples.swift in Sources */,
+				B082E67A242E53B3007B4E8B /* BasicsExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +386,10 @@
 		B082E66F242E31CF007B4E8B /* TinyConsoleCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TinyConsoleCore;
+		};
+		B082E677242E50F2007B4E8B /* TinyConsoleCoreSwiftLog */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TinyConsoleCoreSwiftLog;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
