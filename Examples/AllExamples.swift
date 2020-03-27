@@ -25,7 +25,10 @@ struct AllExamples: View {
   var body: some View {
     NavigationView {
       List(examples) { example in
-        NavigationLink(destination: example) {
+        NavigationLink(
+          destination: example
+            .navigationBarTitle("\(example.title)", displayMode: .inline)
+        ) {
           Text(example.title)
         }
       }
@@ -41,10 +44,7 @@ struct ALLExamples_Previews: PreviewProvider {
     let logging = ConsoleLoggingStore()
 
     LoggingSystem.bootstrap { label in
-      ConsoleLogHandler(
-        label: label,
-        log: logging.write
-      )
+      ConsoleLogHandler(label: label, log: logging.write)
     }
     
     return AllExamples()

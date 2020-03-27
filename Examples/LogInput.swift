@@ -30,6 +30,8 @@ struct LogInput: View {
   }
   
   private func sendLog() {
+    if input.isEmpty { return }
+    
     log(input)
     input = ""
   }

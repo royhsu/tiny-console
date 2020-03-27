@@ -35,10 +35,7 @@ struct IntegrateSwiftLogExample_Previews: PreviewProvider {
     let logging = ConsoleLoggingStore()
 
     LoggingSystem.bootstrap { label in
-      ConsoleLogHandler(
-        label: label,
-        log: logging.write
-      )
+      ConsoleLogHandler(label: label, log: logging.write)
     }
     
     return IntegrateSwiftLogExample()

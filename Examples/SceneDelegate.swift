@@ -6,9 +6,11 @@
 //  Copyright © 2020 TinyWorld. All rights reserved.
 //
 
+import Logging
 import UIKit
 import SwiftUI
 import TinyConsoleCore
+import TinyConsoleCoreSwiftLog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,13 +23,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
     // Create the SwiftUI view that provides the window contents.
-    let contentView = BasicsExample()
-
+    let logging = ConsoleLoggingStore()
+    
+    LoggingSystem.bootstrap { label in
+      ConsoleLogHandler(label: label, log: logging.write)
+    }
+    
     // Use a UIHostingController as window root view controller.
     if let windowScene = scene as? UIWindowScene {
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = UIHostingController(
-          rootView: contentView.environmentObject(ConsoleLoggingStore()))
+          rootView: AllExamples().environmentObject(logging))
         self.window = window
         window.makeKeyAndVisible()
     }
