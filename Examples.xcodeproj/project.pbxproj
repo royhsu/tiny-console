@@ -35,7 +35,6 @@
 		B082E679242E53B3007B4E8B /* BasicsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicsExample.swift; sourceTree = "<group>"; };
 		B082E67B242E54CE007B4E8B /* AllExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExamples.swift; sourceTree = "<group>"; };
 		B082E67D242E57E6007B4E8B /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
-		B082E680242EECFF007B4E8B /* tiny-console */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "tiny-console"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +54,6 @@
 		B082E64B242E3091007B4E8B = {
 			isa = PBXGroup;
 			children = (
-				B082E680242EECFF007B4E8B /* tiny-console */,
 				B082E656242E3091007B4E8B /* Examples */,
 				B082E655242E3091007B4E8B /* Products */,
 				B082E66C242E31CF007B4E8B /* Frameworks */,
@@ -253,7 +251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -307,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
