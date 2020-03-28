@@ -16,10 +16,16 @@ struct AllExamples: View {
   var logging: ConsoleLoggingStore
   
   private var examples = [
-    Example(title: "Basics", body: AnyView(BasicsExample())),
+    Example(
+      title: "Basics",
+      body: AnyView(
+        BasicsExample()
+          .console(enabled: true))),
     Example(
       title: "Integrate with SwiftLog",
-      body: AnyView(IntegrateSwiftLogExample())),
+      body: AnyView(
+        IntegrateSwiftLogExample()
+          .console(enabled: true))),
   ]
   
   var body: some View {

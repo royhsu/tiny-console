@@ -29,7 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     if let windowScene = scene as? UIWindowScene {
       // 3. Don't forget inject the default logging store.
-      let contentView = AllExamples().environmentObject(logging)
+      let contentView = AllExamples()
+        .environmentObject(logging)
       let window = UIWindow(windowScene: windowScene)
       
       window.rootViewController = UIHostingController(rootView: contentView)

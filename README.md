@@ -2,6 +2,16 @@
 
 TinyConsole allows you to embed the console into an app, happy debugging.
 
+## Installation
+
+### Swift Package Manager
+
+Add the package as your dependences.
+
+```
+.package(url: "https://github.com/royhsu/tiny-console.git", .branch("master")),
+```
+
 ## Usages
 
 To understand how TinyConsole works, you must look at ConsoleLoggingStore. It's the 
@@ -18,13 +28,13 @@ import TinyConsoleCore
 ConsoleLoggingStore.default // the default logging store.
 ```
 
-Embed your content view into a console via `console(enabled:)` modifier.
+Embed your content view into a console with `console(enabled:)` modifier.
 
 ```swift
 ContentView()
 	.console(enabled: true) // embed with a console.
 ```
-Next, don't forget to inject the logging store by `environmentObject(_:)` modifier.
+Next, don't forget to inject the logging store with `environmentObject(_:)` modifier.
 
 ```swift
 ContentView()
