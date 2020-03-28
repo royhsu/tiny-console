@@ -10,11 +10,13 @@ import Logging
 import SwiftUI
 import TinyConsole
 import TinyConsoleCore
-import TinyConsoleCoreSwiftLog
+import TinyConsoleSwiftLog
 
 struct IntegrateSwiftLogExample: View {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
+  @Environment(\.logger)
+  var logger
 
   var body: some View {
     Console {
@@ -22,10 +24,7 @@ struct IntegrateSwiftLogExample: View {
     }
   }
   
-  private func log(message: String) {
-    let logger = Logger(label: String(describing: Self.self))
-    logger.trace("\(message)")
-  }
+  private func log(message: String) { logger.trace("\(message)") }
 }
 
 // MARK: - Previews
@@ -33,7 +32,7 @@ struct IntegrateSwiftLogExample: View {
 struct IntegrateSwiftLogExample_Previews: PreviewProvider {
   static var previews: some View {
     let logging = ConsoleLoggingStore()
-
+    
     LoggingSystem.bootstrap { label in
       ConsoleLogHandler(label: label, log: logging.write)
     }

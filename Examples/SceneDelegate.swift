@@ -10,7 +10,7 @@ import Logging
 import UIKit
 import SwiftUI
 import TinyConsoleCore
-import TinyConsoleCoreSwiftLog
+import TinyConsoleSwiftLog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

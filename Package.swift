@@ -8,8 +8,8 @@ let package = Package(
   products: [
     .library(name: "TinyConsoleCore", targets: ["TinyConsoleCore"]),
     .library(
-      name: "TinyConsoleCoreSwiftLog",
-      targets: ["TinyConsoleCoreSwiftLog"]),
+      name: "TinyConsoleSwiftLog",
+      targets: ["TinyConsoleSwiftLog"]),
     .library(name: "TinyConsole", targets: ["TinyConsole"]),
   ],
   dependencies: [
@@ -18,7 +18,7 @@ let package = Package(
   targets: [
     .target(name: "TinyConsoleCore"),
     .target(
-      name: "TinyConsoleCoreSwiftLog",
+      name: "TinyConsoleSwiftLog",
       dependencies: [.product(name: "Logging", package: "swift-log")]),
     .target(name: "TinyConsole", dependencies: ["TinyConsoleCore"]),
     .testTarget(name: "TinyConsoleTests", dependencies: ["TinyConsole"]),
