@@ -15,9 +15,7 @@ struct BasicsExample: View {
   var logging: ConsoleLoggingStore
   
   var body: some View {
-    Console {
-      LogInput(log: log)
-    }
+    LogInput(log: log)
   }
   
   private func log(message: String) { logging.write(message) }
@@ -28,6 +26,7 @@ struct BasicsExample: View {
 struct BasicsExample_Previews: PreviewProvider {
   static var previews: some View {
     BasicsExample()
+      .console(enabled: true)
       .environmentObject(ConsoleLoggingStore.default)
   }
 }

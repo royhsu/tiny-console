@@ -13,9 +13,9 @@ import TinyConsoleCore
 #warning("TODO: [Priority: high] scroll to the bottom after the log display is updated.")
 #warning("TODO: [Priority: high] log should be selectable and copyable.")
 #warning("TODO: [Priority: high] it seems like a great idea if we set the default height of the console by percentage. e.g. 1/4 of the screen.")
-public struct Console<Embedded>: View where Embedded: View {
+struct Console<Embedded>: View where Embedded: View {
   @EnvironmentObject
-  public var logging: ConsoleLoggingStore
+  var logging: ConsoleLoggingStore
 
   private let embedded: Embedded
 
@@ -73,7 +73,7 @@ public struct Console<Embedded>: View where Embedded: View {
       )
   }
 
-  public var body: some View {
+  var body: some View {
     VDrawer(
       background: {
         embedded
@@ -88,7 +88,7 @@ public struct Console<Embedded>: View where Embedded: View {
     )
   }
 
-  public init(@ViewBuilder embedded: () -> Embedded) {
+  init(@ViewBuilder embedded: () -> Embedded) {
     self.embedded = embedded()
   }
 }

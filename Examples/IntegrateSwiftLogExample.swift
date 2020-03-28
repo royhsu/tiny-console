@@ -19,9 +19,7 @@ struct IntegrateSwiftLogExample: View {
   var logger
 
   var body: some View {
-    Console {
-      LogInput(log: log)
-    }
+    LogInput(log: log)
   }
   
   private func log(message: String) { logger.trace("\(message)") }
@@ -32,6 +30,7 @@ struct IntegrateSwiftLogExample: View {
 struct IntegrateSwiftLogExample_Previews: PreviewProvider {
   static var previews: some View {
     IntegrateSwiftLogExample()
+      .console(enabled: true)
       .environmentObject(ConsoleLoggingStore.default)
   }
 }
