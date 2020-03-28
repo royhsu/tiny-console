@@ -8,7 +8,7 @@ TinyConsole allows you to embed the console into an app, happy debugging.
 
 Add the package as your dependences.
 
-```
+```swift
 .package(url: "https://github.com/royhsu/tiny-console.git", .branch("master")),
 ```
 
