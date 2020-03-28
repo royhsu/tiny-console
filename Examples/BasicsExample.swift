@@ -25,9 +25,9 @@ struct BasicsExample: View {
 
 // MARK: - Previews
 
-struct ContentView_Previews: PreviewProvider {
+struct BasicsExample_Previews: PreviewProvider {
   static var previews: some View {
     BasicsExample()
-      .environmentObject(ConsoleLoggingStore())
+      .environmentObject(ConsoleLoggingStore.default)
   }
 }

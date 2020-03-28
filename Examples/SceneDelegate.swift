@@ -23,8 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
     // Create the SwiftUI view that provides the window contents.
-    let logging = ConsoleLoggingStore()
-    
+    let logging = ConsoleLoggingStore.default
+
     LoggingSystem.bootstrap { label in
       ConsoleLogHandler(label: label, log: logging.write)
     }

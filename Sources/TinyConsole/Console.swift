@@ -97,10 +97,10 @@ public struct Console<Embedded>: View where Embedded: View {
 
 struct Console_Previews: PreviewProvider {
   static var previews: some View {
-    return Console {
+    Console {
       Rectangle()
         .fill(Color.purple)
     }
-      .environmentObject(ConsoleLoggingStore())
+      .environmentObject(ConsoleLoggingStore.default)
   }
 }

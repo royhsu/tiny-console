@@ -15,8 +15,6 @@ public final class ConsoleLoggingStore: ObservableObject {
   /// All written lines.
   @Published
   private(set) var history = [String]()
-
-  public init() {}
 }
 
 extension ConsoleLoggingStore {
@@ -28,4 +26,8 @@ extension ConsoleLoggingStore {
 
   /// Clear all displayed lines.
   public func clearDisplay() { display = "" }
+}
+
+extension ConsoleLoggingStore {
+  public static let `default` = ConsoleLoggingStore()
 }

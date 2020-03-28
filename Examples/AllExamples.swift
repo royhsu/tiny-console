@@ -41,13 +41,7 @@ struct AllExamples: View {
 
 struct ALLExamples_Previews: PreviewProvider {
   static var previews: some View {
-    let logging = ConsoleLoggingStore()
-    
-    LoggingSystem.bootstrap { label in
-      ConsoleLogHandler(label: label, log: logging.write)
-    }
-    
-    return AllExamples()
-      .environmentObject(logging)
+    AllExamples()
+      .environmentObject(ConsoleLoggingStore.default)
   }
 }

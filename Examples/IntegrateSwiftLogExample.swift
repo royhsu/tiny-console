@@ -31,13 +31,7 @@ struct IntegrateSwiftLogExample: View {
 
 struct IntegrateSwiftLogExample_Previews: PreviewProvider {
   static var previews: some View {
-    let logging = ConsoleLoggingStore()
-    
-    LoggingSystem.bootstrap { label in
-      ConsoleLogHandler(label: label, log: logging.write)
-    }
-    
-    return IntegrateSwiftLogExample()
-      .environmentObject(logging)
+    IntegrateSwiftLogExample()
+      .environmentObject(ConsoleLoggingStore.default)
   }
 }
