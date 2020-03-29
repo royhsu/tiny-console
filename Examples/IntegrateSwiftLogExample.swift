@@ -15,13 +15,14 @@ import TinyConsoleSwiftLog
 struct IntegrateSwiftLogExample: View {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
+
   @Environment(\.logger)
   var logger
 
   var body: some View {
     LogInput(log: log)
   }
-  
+
   private func log(message: String) { logger.trace("\(message)") }
 }
 

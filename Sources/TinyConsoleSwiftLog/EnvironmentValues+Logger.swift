@@ -1,9 +1,9 @@
 //
 //  EnvironmentValues+Logger.swift
-//  Examples
+//
 //
 //  Created by Roy Hsu on 2020/3/28.
-//  Copyright © 2020 TinyWorld. All rights reserved.
+//  
 //
 
 import Logging

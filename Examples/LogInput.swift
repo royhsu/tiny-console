@@ -10,8 +10,9 @@ import SwiftUI
 struct LogInput: View {
   @State
   private var input = ""
+
   var log: (_ message: String) -> Void
-  
+
   var body: some View {
     Form {
       Section {
@@ -28,10 +29,10 @@ struct LogInput: View {
       }
     }
   }
-  
+
   private func sendLog() {
     if input.isEmpty { return }
-    
+
     log(input)
     input = ""
   }

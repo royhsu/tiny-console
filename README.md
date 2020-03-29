@@ -1,12 +1,13 @@
 # TinyConsole
 
-TinyConsole allows you to embed the console into an app, happy debugging.
+TinyConsole allows you to embed the console into an app, happy debugging. It's quite useful
+to use in-app console when working with SwiftUI live previews or debugging on real devices.
 
 ## Installation
 
 ### Swift Package Manager
 
-Add the package as your dependences.
+Add the package to your dependencies.
 
 ```swift
 .package(url: "https://github.com/royhsu/tiny-console.git", .branch("master")),
@@ -51,7 +52,7 @@ ConsoleLoggingStore.default.write("Hello World")
 
 Learn more about [SwiftLog](https://github.com/apple/swift-log).
 
-You can also integrate SwiftLog framework to provide multiple logging services via `TinyConsoleSwiftLog` module.
+You can also integrate SwiftLog to provide multiple logging services via `TinyConsoleSwiftLog` module.
 
 First, bootstrap your logging services at the beginning of your program. Take `SceneDelegate` as the example.
 
@@ -89,7 +90,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 }
 ```
-It's time to log some message! Instead of calling `write(:)`  directly from the default logging store, you should use `logger` from environment values.
+It's time to log some message! Instead of calling `write(:)`  directly from the default logging store, you should use the `logger` from environment values.
 
 ```swift
 import Logging
@@ -99,7 +100,7 @@ import TinyConsoleSwiftLog
 struct ContentView: View {
 	@EnvironmentObject
  	var logging: ConsoleLoggingStore
-	@Environment(\.logger) // Get logger from the environment values.
+	@Environment(\.logger) // Get a logger from environment values.
 	var logger
 	
 	var body: some View {

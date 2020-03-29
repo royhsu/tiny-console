@@ -16,4 +16,4 @@ struct Example: View {
 
 // MARK: - Identifiable
 
-extension Example: Identifiable { }
+extension Example: Identifiable {}

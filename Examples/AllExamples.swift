@@ -14,7 +14,7 @@ import TinyConsoleSwiftLog
 struct AllExamples: View {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
-  
+
   private var examples = [
     Example(
       title: "Basics",
@@ -27,12 +27,13 @@ struct AllExamples: View {
         IntegrateSwiftLogExample()
           .console(enabled: true))),
   ]
-  
+
   var body: some View {
     NavigationView {
       List(examples) { example in
         NavigationLink(
-          destination: example
+          destination:
+            example
             .navigationBarTitle("\(example.title)", displayMode: .inline)
         ) {
           Text(example.title)

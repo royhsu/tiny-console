@@ -12,8 +12,9 @@ import TinyConsoleCore
 struct ConsoleModifier: ViewModifier {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
+
   var enabled: Bool
-  
+
   func body(content: Content) -> some View {
     enabled
       ? AnyView(Console { content })

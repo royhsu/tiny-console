@@ -13,11 +13,11 @@ import TinyConsoleCore
 struct BasicsExample: View {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
-  
+
   var body: some View {
     LogInput(log: log)
   }
-  
+
   private func log(message: String) { logging.write(message) }
 }
 

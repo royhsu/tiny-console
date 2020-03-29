@@ -7,10 +7,10 @@
 //
 
 import Logging
-import UIKit
 import SwiftUI
 import TinyConsoleCore
 import TinyConsoleSwiftLog
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
@@ -26,13 +26,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     LoggingSystem.bootstrap { label in
       ConsoleLogHandler(label: label, log: logging.write)
     }
-    
+
     if let windowScene = scene as? UIWindowScene {
       // 3. Don't forget inject the default logging store.
       let contentView = AllExamples()
         .environmentObject(logging)
       let window = UIWindow(windowScene: windowScene)
-      
+
       window.rootViewController = UIHostingController(rootView: contentView)
       window.makeKeyAndVisible()
       self.window = window
