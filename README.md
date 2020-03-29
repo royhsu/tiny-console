@@ -33,14 +33,14 @@ Embed your content view into a console with `console(enabled:)` modifier.
 
 ```swift
 ContentView()
-	.console(enabled: true) // embed with a console.
+  .console(enabled: true) // embed with a console.
 ```
 Next, don't forget to inject the logging store with `environmentObject(_:)` modifier.
 
 ```swift
 ContentView()
-	.console(enabled: true)
-	.environmentObject(ConsoleLoggingStore.default) // inject the default logging store.
+  .console(enabled: true)
+  .environmentObject(ConsoleLoggingStore.default) // inject the default logging store.
 ```
 Now, you can log any message by calling `write(_:)` from the logging store, and messages will appear in the console.
 
@@ -75,14 +75,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     LoggingSystem.bootstrap { label in
       ConsoleLogHandler(label: label, log: logging.write)
     }
-    
+
     if let windowScene = scene as? UIWindowScene {
       // 3. Don't forget inject the default logging store.
       let contentView = ContentView()
-      		.console(enabled: true)
-      		.environmentObject(logging)
+        .console(enabled: true)
+        .environmentObject(logging)
       let window = UIWindow(windowScene: windowScene)
-      
+
       window.rootViewController = UIHostingController(rootView: contentView)
       window.makeKeyAndVisible()
       self.window = window
@@ -98,21 +98,21 @@ import TinyConsoleCore
 import TinyConsoleSwiftLog
 
 struct ContentView: View {
-	@EnvironmentObject
- 	var logging: ConsoleLoggingStore
-	@Environment(\.logger) // Get a logger from environment values.
-	var logger
-	
-	var body: some View {
-		Button(action: log) {
-			Text("Log")
-		}
-	}
-	
-	func log() { 
-		// Log your message!
-		logger.trace("Hello World")
-	}
+  @EnvironmentObject
+  var logging: ConsoleLoggingStore
+  @Environment(\.logger) // Get a logger from environment values.
+  var logger
+
+  var body: some View {
+    Button(action: log) {
+      Text("Log")
+    }
+  }
+
+	func log() {
+    // Log your message!
+    logger.trace("Hello World")
+  }
 }
 ```
 
