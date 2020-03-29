@@ -109,7 +109,7 @@ struct ContentView: View {
     }
   }
 
-	func log() {
+  func log() {
     // Log your message!
     logger.trace("Hello World")
   }
