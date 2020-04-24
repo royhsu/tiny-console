@@ -9,6 +9,8 @@
 
 import SwiftUI
 import TinyConsoleCore
+import TreeCore
+import TreeUI
 
 #warning("TODO: [Priority: high] scroll to the bottom after the log display is updated.")
 #warning("TODO: [Priority: high] log should be selectable and copyable.")
@@ -68,7 +70,7 @@ struct Console<Embedded>: View where Embedded: View {
       ? AnyView(placeholder)
       : AnyView(
         List(logging.display) { log in
-          NavigationLink(destination: Text("Metadata")) {
+          NavigationLink(destination: LogDetail(log: log)) {
             Line(log: log)
           }
         }
@@ -92,23 +94,6 @@ struct Console<Embedded>: View where Embedded: View {
 
   init(@ViewBuilder embedded: () -> Embedded) {
     self.embedded = embedded()
-  }
-}
-
-// MARK: - Line
-
-fileprivate struct Line: View {
-  var log: Log
-  private var formattedMessage: String {
-    "\(log.message)"
-  }
-  
-  var body: some View {
-    Text(formattedMessage)
-  }
-  
-  init(log: Log) {
-    self.log = log
   }
 }
 

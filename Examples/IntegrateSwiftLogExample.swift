@@ -25,10 +25,7 @@ struct IntegrateSwiftLogExample: View {
   private func log(message: String) {
     logger.trace(
       "\(message)",
-      metadata: ["id":"1"],
-      file: #file,
-      function: #function,
-      line: #line
+      metadata: ["id":"1"]
     )
   }
 }

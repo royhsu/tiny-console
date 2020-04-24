@@ -20,13 +20,16 @@ let package = Package(
   targets: [
     .target(
       name: "TinyConsoleCore",
+      dependencies: [.product(name: "Logging", package: "swift-log")]
+    ),
+    .target(
+      name: "TinyConsole",
       dependencies: [
+        .target(name: "TinyConsoleCore"),
         .product(name: "TreeCore", package: "TreeUI"),
         .product(name: "TreeUI", package: "TreeUI"),
-        .product(name: "Logging", package: "swift-log"),
       ]
     ),
-    .target(name: "TinyConsole", dependencies: ["TinyConsoleCore"]),
     .testTarget(name: "TinyConsoleTests", dependencies: ["TinyConsole"]),
   ]
 )
