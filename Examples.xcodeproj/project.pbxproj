@@ -18,7 +18,6 @@
 		B082E676242E50A9007B4E8B /* IntegrateSwiftLogExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E675242E50A9007B4E8B /* IntegrateSwiftLogExample.swift */; };
 		B082E67C242E54CE007B4E8B /* AllExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E67B242E54CE007B4E8B /* AllExamples.swift */; };
 		B082E67E242E57E6007B4E8B /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E67D242E57E6007B4E8B /* Example.swift */; };
-		B082E684242EF322007B4E8B /* TinyConsoleSwiftLog in Frameworks */ = {isa = PBXBuildFile; productRef = B082E683242EF322007B4E8B /* TinyConsoleSwiftLog */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 			files = (
 				B082E66E242E31CF007B4E8B /* TinyConsole in Frameworks */,
 				B082E670242E31CF007B4E8B /* TinyConsoleCore in Frameworks */,
-				B082E684242EF322007B4E8B /* TinyConsoleSwiftLog in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +115,6 @@
 			packageProductDependencies = (
 				B082E66D242E31CF007B4E8B /* TinyConsole */,
 				B082E66F242E31CF007B4E8B /* TinyConsoleCore */,
-				B082E683242EF322007B4E8B /* TinyConsoleSwiftLog */,
 			);
 			productName = Examples;
 			productReference = B082E654242E3091007B4E8B /* Examples.app */;
@@ -380,10 +377,6 @@
 		B082E66F242E31CF007B4E8B /* TinyConsoleCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TinyConsoleCore;
-		};
-		B082E683242EF322007B4E8B /* TinyConsoleSwiftLog */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TinyConsoleSwiftLog;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

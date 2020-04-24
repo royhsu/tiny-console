@@ -7,9 +7,6 @@ let package = Package(
   platforms: [.iOS(.v13), .macOS(.v10_15), .tvOS(.v13), .watchOS(.v6)],
   products: [
     .library(name: "TinyConsoleCore", targets: ["TinyConsoleCore"]),
-    .library(
-      name: "TinyConsoleSwiftLog",
-      targets: ["TinyConsoleSwiftLog"]),
     .library(name: "TinyConsole", targets: ["TinyConsole"]),
   ],
   dependencies: [
@@ -23,10 +20,6 @@ let package = Package(
   targets: [
     .target(
       name: "TinyConsoleCore",
-      dependencies: [.product(name: "Logging", package: "swift-log")]
-    ),
-    .target(
-      name: "TinyConsoleSwiftLog",
       dependencies: [
         .product(name: "TreeCore", package: "TreeUI"),
         .product(name: "TreeUI", package: "TreeUI"),

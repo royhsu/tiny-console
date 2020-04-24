@@ -10,7 +10,6 @@ import Logging
 import SwiftUI
 import TinyConsole
 import TinyConsoleCore
-import TinyConsoleSwiftLog
 
 struct IntegrateSwiftLogExample: View {
   @EnvironmentObject
