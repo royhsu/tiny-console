@@ -16,7 +16,6 @@
 		B082E670242E31CF007B4E8B /* TinyConsoleCore in Frameworks */ = {isa = PBXBuildFile; productRef = B082E66F242E31CF007B4E8B /* TinyConsoleCore */; };
 		B082E672242E3B33007B4E8B /* LogInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E671242E3B33007B4E8B /* LogInput.swift */; };
 		B082E676242E50A9007B4E8B /* IntegrateSwiftLogExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E675242E50A9007B4E8B /* IntegrateSwiftLogExample.swift */; };
-		B082E67A242E53B3007B4E8B /* BasicsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E679242E53B3007B4E8B /* BasicsExample.swift */; };
 		B082E67C242E54CE007B4E8B /* AllExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E67B242E54CE007B4E8B /* AllExamples.swift */; };
 		B082E67E242E57E6007B4E8B /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = B082E67D242E57E6007B4E8B /* Example.swift */; };
 		B082E684242EF322007B4E8B /* TinyConsoleSwiftLog in Frameworks */ = {isa = PBXBuildFile; productRef = B082E683242EF322007B4E8B /* TinyConsoleSwiftLog */; };
@@ -32,7 +31,6 @@
 		B082E665242E3094007B4E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B082E671242E3B33007B4E8B /* LogInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInput.swift; sourceTree = "<group>"; };
 		B082E675242E50A9007B4E8B /* IntegrateSwiftLogExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrateSwiftLogExample.swift; sourceTree = "<group>"; };
-		B082E679242E53B3007B4E8B /* BasicsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicsExample.swift; sourceTree = "<group>"; };
 		B082E67B242E54CE007B4E8B /* AllExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExamples.swift; sourceTree = "<group>"; };
 		B082E67D242E57E6007B4E8B /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +74,6 @@
 				B082E67D242E57E6007B4E8B /* Example.swift */,
 				B082E67B242E54CE007B4E8B /* AllExamples.swift */,
 				B082E671242E3B33007B4E8B /* LogInput.swift */,
-				B082E679242E53B3007B4E8B /* BasicsExample.swift */,
 				B082E675242E50A9007B4E8B /* IntegrateSwiftLogExample.swift */,
 				B082E65D242E3094007B4E8B /* Assets.xcassets */,
 				B082E662242E3094007B4E8B /* LaunchScreen.storyboard */,
@@ -183,7 +180,6 @@
 				B082E676242E50A9007B4E8B /* IntegrateSwiftLogExample.swift in Sources */,
 				B082E672242E3B33007B4E8B /* LogInput.swift in Sources */,
 				B082E67C242E54CE007B4E8B /* AllExamples.swift in Sources */,
-				B082E67A242E53B3007B4E8B /* BasicsExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

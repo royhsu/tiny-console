@@ -50,32 +50,26 @@ struct Console<Embedded>: View where Embedded: View {
     ZStack {
       Rectangle()
         .fill(Color.white)
-
       foregroundContent
     }
   }
 
+  private var placeholder: some View {
+    VStack {
+      Spacer()
+      Text("Empty")
+        .foregroundColor(Color.gray)
+      Spacer()
+    }
+  }
+  
   private var foregroundContent: some View {
-    logging._deprecatedDisplay.isEmpty
-      ? AnyView(
-        VStack(spacing: 0.0) {
-          Spacer()
-          Text("Empty")
-            .foregroundColor(Color.gray)
-          Spacer()
-        }
-      )
+    logging.display.isEmpty
+      ? AnyView(placeholder)
       : AnyView(
-        ScrollView(showsIndicators: true) {
-          ZStack {
-            Rectangle()
-              .fill(Color.clear)
-
-            HStack(spacing: 0.0) {
-              Text(logging._deprecatedDisplay)
-              Spacer()
-            }
-              .padding()
+        List(logging.display) { log in
+          NavigationLink(destination: Text("Metadata")) {
+            Line(log: log)
           }
         }
       )
@@ -98,6 +92,23 @@ struct Console<Embedded>: View where Embedded: View {
 
   init(@ViewBuilder embedded: () -> Embedded) {
     self.embedded = embedded()
+  }
+}
+
+// MARK: - Line
+
+fileprivate struct Line: View {
+  var log: Log
+  private var formattedMessage: String {
+    "\(log.message)"
+  }
+  
+  var body: some View {
+    Text(formattedMessage)
+  }
+  
+  init(log: Log) {
+    self.log = log
   }
 }
 

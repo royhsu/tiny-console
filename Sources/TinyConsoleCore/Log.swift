@@ -5,18 +5,26 @@
 //  Created by Roy Hsu on 2020/4/24.
 //
 
+import Foundation
 import Logging
 
-struct Log {
+public struct Log {
+  public let id = UUID()
   /// A label for which generates the log.
-  var source: String
-  var level: Logger.Level
-  var message: Logger.Message
-  var metadata: Logger.Metadata
-  var file: String
-  var function: String
-  var line: UInt
+  public var source: String
+  public var level: Logger.Level
+  public var message: Logger.Message
+  public var metadata: Logger.Metadata
+  public var file: String
+  public var function: String
+  public var line: UInt
 }
+
+// MARK: - Identifiable
+
+extension Log: Identifiable {}
+
+// MARK: - Metadata
 
 extension Log {
   subscript(metadataKey: Logger.Metadata.Key) -> Logger.Metadata.Value? {
@@ -24,4 +32,3 @@ extension Log {
     set { metadata[metadataKey] = newValue }
   }
 }
-

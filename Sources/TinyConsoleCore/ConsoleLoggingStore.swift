@@ -17,14 +17,12 @@ public final class ConsoleLoggingStore: ObservableObject {
   private let logQueue = PassthroughSubject<Log, Never>()
   /// Current displayed logs.
   @Published
-  private var display = [Log]()
+  public private(set) var display = [Log]()
   /// All the logs are preserved in the history.
   @Published
   private var history = [Log]()
   
-  init() {
-    self.setUp()
-  }
+  init() { self.setUp() }
 }
 
 extension ConsoleLoggingStore {
@@ -37,13 +35,6 @@ extension ConsoleLoggingStore {
 }
 
 extension ConsoleLoggingStore {
-  /// Write new line into the store.
-  @available(*, deprecated, message: "Please use log(level:mssage:metadata:file:function:line:) instead.")
-  public func write(_ line: String) {
-//    _history.append(line)
-    _deprecatedDisplay = _deprecatedDisplay.isEmpty ? line : (_deprecatedDisplay + "\n" + line)
-  }
-  
   public func log(
     from source: String,
     level: Logger.Level,
@@ -67,7 +58,7 @@ extension ConsoleLoggingStore {
   }
 
   /// Clear all displayed logs.
-  public func clearDisplay() { _deprecatedDisplay = "" }
+  public func clearDisplay() { display = [] }
 }
 
 extension ConsoleLoggingStore {
