@@ -9,23 +9,19 @@
 import Logging
 import SwiftUI
 import TinyConsoleCore
-import TinyConsoleSwiftLog
 
 struct AllExamples: View {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
 
   private var examples = [
-//    Example(
-//      title: "Basics",
-//      body: AnyView(
-//        BasicsExample()
-//          .console(enabled: true))),
     Example(
-      title: "Integrate with SwiftLog",
+      title: "Basics",
       body: AnyView(
-        IntegrateSwiftLogExample()
-          .console(enabled: true))),
+        LogEditor()
+          .console(enabled: true)
+      )
+    ),
   ]
 
   var body: some View {

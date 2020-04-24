@@ -1,5 +1,5 @@
 //
-//  IntegrateSwiftLogExample.swift
+//  LogEditor.swift
 //  Examples
 //
 //  Created by Roy Hsu on 2020/3/27.
@@ -11,18 +11,33 @@ import SwiftUI
 import TinyConsole
 import TinyConsoleCore
 
-struct IntegrateSwiftLogExample: View {
+struct LogEditor: View {
+  @State
+  private var message = ""
   @EnvironmentObject
   var logging: ConsoleLoggingStore
-
   @Environment(\.logger)
   var logger
 
   var body: some View {
-    LogInput(log: log)
+    Form {
+      Section {
+        TextField("Message", text: $message)
+      }
+      Section {
+        HStack {
+          Spacer()
+          Button(action: log) {
+            Text("Log")
+          }
+          Spacer()
+        }
+      }
+        .disabled(message.isEmpty)
+    }
   }
 
-  private func log(message: String) {
+  private func log() {
     logger.trace(
       "\(message)",
       metadata: ["id":"1"]
@@ -32,9 +47,9 @@ struct IntegrateSwiftLogExample: View {
 
 // MARK: - Previews
 
-struct IntegrateSwiftLogExample_Previews: PreviewProvider {
+struct LogEditor_Previews: PreviewProvider {
   static var previews: some View {
-    IntegrateSwiftLogExample()
+    LogEditor()
       .console(enabled: true)
       .environmentObject(ConsoleLoggingStore.default)
   }

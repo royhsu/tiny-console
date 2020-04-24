@@ -6,9 +6,9 @@
 //  Copyright © 2020 TinyWorld. All rights reserved.
 //
 
+import Logging
 import SwiftUI
 import TinyConsoleCore
-import Logging
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
