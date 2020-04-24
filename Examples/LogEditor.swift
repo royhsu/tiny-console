@@ -8,8 +8,8 @@
 
 import Logging
 import SwiftUI
-import TinyConsole
 import TinyConsoleCore
+import TinyConsoleUI
 
 struct LogEditor: View {
   @State

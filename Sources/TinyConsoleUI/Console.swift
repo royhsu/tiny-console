@@ -9,8 +9,8 @@
 
 import SwiftUI
 import TinyConsoleCore
-import TreeCore
-import TreeUI
+import TinyTreeCore
+import TinyTreeUI
 
 #warning("TODO: [Priority: high] scroll to the bottom after the log display is updated.")
 #warning("TODO: [Priority: high] log should be selectable and copyable.")

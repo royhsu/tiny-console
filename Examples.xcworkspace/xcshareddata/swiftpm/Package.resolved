@@ -11,11 +11,11 @@
         }
       },
       {
-        "package": "TreeUI",
-        "repositoryURL": "https://github.com/royhsu/tree-ui.git",
+        "package": "TinyTree",
+        "repositoryURL": "https://github.com/royhsu/tiny-tree.git",
         "state": {
           "branch": "master",
-          "revision": "f30e08c0abc6c70eed475a94cb7cf1a42791dea7",
+          "revision": "ed775c101f97dd7f4c2b7ddf79dfb577df39444f",
           "version": null
         }
       }

@@ -7,8 +7,8 @@
 
 import SwiftUI
 import TinyConsoleCore
-import TreeCore
-import TreeUI
+import TinyTreeCore
+import TinyTreeUI
 
 struct LogDetail: View {
   private let log: Log

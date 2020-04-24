@@ -5,7 +5,7 @@
 //  Created by Roy Hsu on 2020/4/24.
 //
 
-import TreeCore
+import TinyTreeCore
 import Logging
 
 extension Primitive {
