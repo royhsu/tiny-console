@@ -65,7 +65,7 @@ import TinyConsoleUI
 struct ContentView: View {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
-  @Environment(\.logger) // 5. Get a logger from environment values.
+  @Environment(\.logger) // 1. Get a logger from environment values.
   var logger
 
   var body: some View {
@@ -75,7 +75,7 @@ struct ContentView: View {
   }
 
   func log() {
-    // 6. Log your message!
+    // 2. Log your message!
     logger.trace("Hello World")
   }
 }
