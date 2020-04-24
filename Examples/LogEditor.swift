@@ -6,7 +6,6 @@
 //  Copyright © 2020 TinyWorld. All rights reserved.
 //
 
-import Logging
 import SwiftUI
 import TinyConsoleCore
 import TinyConsoleUI
