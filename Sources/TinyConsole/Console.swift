@@ -28,8 +28,13 @@ struct Console<Embedded>: View where Embedded: View {
         Spacer()
         HStack {
           Button(action: logging.clearDisplay) {
+            #if os(macOS)
+            Text("Clear")
+              .foregroundColor(Color.black)
+            #elseif os(iOS)
             Image(systemName: "trash.fill")
               .foregroundColor(Color.black)
+            #endif
           }
         }
           .padding()
@@ -48,7 +53,7 @@ struct Console<Embedded>: View where Embedded: View {
   }
 
   private var foregroundContent: some View {
-    logging.display.isEmpty
+    logging._deprecatedDisplay.isEmpty
       ? AnyView(
         VStack(spacing: 0.0) {
           Spacer()
@@ -64,7 +69,7 @@ struct Console<Embedded>: View where Embedded: View {
               .fill(Color.clear)
 
             HStack(spacing: 0.0) {
-              Text(logging.display)
+              Text(logging._deprecatedDisplay)
               Spacer()
             }
               .padding()

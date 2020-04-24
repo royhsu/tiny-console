@@ -9,7 +9,7 @@ import Logging
 
 public struct ConsoleLogHandler: LogHandler {
   public let label: String
-  public var logLevel = Logger.Level.trace
+  public var logLevel = Logger.Level.lowerBound
   public var metadata = Logger.Metadata()
   private let _log: Log
 
@@ -31,25 +31,30 @@ public struct ConsoleLogHandler: LogHandler {
     function: String,
     line: UInt
   ) {
-    #warning("TODO: [Priority: high] determine whether to show metadata.")
-    let finalMetadata: Logger.Metadata
-    if let newMetadata = newMetadata {
-      finalMetadata = metadata.merging(
-        newMetadata,
-        uniquingKeysWith: { _, new in new }
-      )
-    } else { finalMetadata = metadata }
-    #warning("TODO: [Priority: medium] add ConsoleLogFormatter.")
-    let formattedText = "\(timestamp()) \(level) \(label): \(message)"
-    _log(formattedText)
+    if level < logLevel { return }
+    
+    _log(
+      label,
+      level,
+      message,
+      metadata.merging(newMetadata ?? [:], uniquingKeysWith: { _, new in new }),
+      file,
+      function,
+      line
+    )
   }
-
-  #warning("TODO: [Priority: high] unimplemented.")
-  private func timestamp() -> String { "#Timestamp#" }
 }
 
 // MARK: - Log
 
 extension ConsoleLogHandler {
-  public typealias Log = (_ formattedText: String) -> Void
+  public typealias Log = (
+    _ source: String,
+    _ level: Logger.Level,
+    _ message: Logger.Message,
+    _ metadata: Logger.Metadata?,
+    _ file: String,
+    _ function: String,
+    _ line: UInt
+  ) -> Void
 }

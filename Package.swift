@@ -14,12 +14,25 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
+    .package(
+      name: "TreeUI",
+      url: "https://github.com/royhsu/tree-ui.git",
+      .branch("master")
+    ),
   ],
   targets: [
-    .target(name: "TinyConsoleCore"),
+    .target(
+      name: "TinyConsoleCore",
+      dependencies: [.product(name: "Logging", package: "swift-log")]
+    ),
     .target(
       name: "TinyConsoleSwiftLog",
-      dependencies: [.product(name: "Logging", package: "swift-log")]),
+      dependencies: [
+        .product(name: "TreeCore", package: "TreeUI"),
+        .product(name: "TreeUI", package: "TreeUI"),
+        .product(name: "Logging", package: "swift-log"),
+      ]
+    ),
     .target(name: "TinyConsole", dependencies: ["TinyConsoleCore"]),
     .testTarget(name: "TinyConsoleTests", dependencies: ["TinyConsole"]),
   ]
