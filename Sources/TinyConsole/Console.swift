@@ -70,7 +70,10 @@ struct Console<Embedded>: View where Embedded: View {
       ? AnyView(placeholder)
       : AnyView(
         List(logging.display) { log in
-          NavigationLink(destination: LogDetail(log: log)) {
+          NavigationLink(
+            destination: LogDetail(log: log)
+            .navigationBarTitle("Inspector")
+          ) {
             Line(log: log)
           }
         }
