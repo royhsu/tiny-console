@@ -28,19 +28,22 @@ struct Console<Embedded>: View where Embedded: View {
         Spacer()
         HStack {
           Button(action: logging.clearDisplay) {
-            #if os(macOS)
-            Text("Clear")
+            clear
               .foregroundColor(Color.black)
-            #elseif os(iOS)
-            Image(systemName: "trash.fill")
-              .foregroundColor(Color.black)
-            #endif
           }
         }
           .padding()
       }
         .background(Color.yellow)
     }
+  }
+  
+  private var clear: some View {
+    #if os(macOS)
+    return AnyView(Text("Clear"))
+    #elseif os(iOS)
+    return AnyView(Image(systemName: "trash.fill"))
+    #endif
   }
 
   private var foreground: some View {
