@@ -9,9 +9,6 @@ import Combine
 import Logging
 
 public final class ConsoleLoggingStore: ObservableObject {
-  /// Current displayed lines.
-  @Published
-  public private(set) var _deprecatedDisplay = ""
   private var logStream: AnyCancellable?
   /// A queue for logs to be piped into history.
   private let logQueue = PassthroughSubject<Log, Never>()
