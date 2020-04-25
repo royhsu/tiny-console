@@ -6,26 +6,56 @@
 //
 
 import Combine
+import Logging
 
 public final class ConsoleLoggingStore: ObservableObject {
-  /// Current displayed lines.
+  private var logStream: AnyCancellable?
+  /// A queue for logs to be piped into history.
+  private let logQueue = PassthroughSubject<Log, Never>()
+  /// Current displayed logs.
   @Published
-  public private(set) var display = ""
-
-  /// All written lines.
+  public private(set) var display = [Log]()
+  /// All the logs are preserved in the history.
   @Published
-  private(set) var history = [String]()
+  private var history = [Log]()
+  
+  init() { self.setUp() }
 }
 
 extension ConsoleLoggingStore {
-  /// Write new line into the store.
-  public func write(_ line: String) {
-    history.append(line)
-    display = display.isEmpty ? line : (display + "\n" + line)
+  private func setUp() {
+    logStream = logQueue.sink { [weak self] log in
+      self?.history.append(log)
+      self?.display.append(log)
+    }
+  }
+}
+
+extension ConsoleLoggingStore {
+  public func log(
+    from source: String,
+    level: Logger.Level,
+    message: Logger.Message,
+    metadata: Logger.Metadata?,
+    file: String,
+    function: String,
+    line: UInt
+  ) {
+    logQueue.send(
+      Log(
+        source: source,
+        level: level,
+        message: message,
+        metadata: metadata ?? [:],
+        file: file,
+        function: function,
+        line: line
+      )
+    )
   }
 
-  /// Clear all displayed lines.
-  public func clearDisplay() { display = "" }
+  /// Clear all displayed logs.
+  public func clearDisplay() { display = [] }
 }
 
 extension ConsoleLoggingStore {

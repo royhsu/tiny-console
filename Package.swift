@@ -7,20 +7,29 @@ let package = Package(
   platforms: [.iOS(.v13), .macOS(.v10_15), .tvOS(.v13), .watchOS(.v6)],
   products: [
     .library(name: "TinyConsoleCore", targets: ["TinyConsoleCore"]),
-    .library(
-      name: "TinyConsoleSwiftLog",
-      targets: ["TinyConsoleSwiftLog"]),
-    .library(name: "TinyConsole", targets: ["TinyConsole"]),
+    .library(name: "TinyConsoleUI", targets: ["TinyConsoleUI"]),
   ],
   dependencies: [
     .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
+    .package(
+      name: "TinyTree",
+      url: "https://github.com/royhsu/tiny-tree.git",
+      .branch("master")
+    ),
   ],
   targets: [
-    .target(name: "TinyConsoleCore"),
     .target(
-      name: "TinyConsoleSwiftLog",
-      dependencies: [.product(name: "Logging", package: "swift-log")]),
-    .target(name: "TinyConsole", dependencies: ["TinyConsoleCore"]),
-    .testTarget(name: "TinyConsoleTests", dependencies: ["TinyConsole"]),
+      name: "TinyConsoleCore",
+      dependencies: [.product(name: "Logging", package: "swift-log")]
+    ),
+    .target(
+      name: "TinyConsoleUI",
+      dependencies: [
+        .target(name: "TinyConsoleCore"),
+        .product(name: "TinyTreeCore", package: "TinyTree"),
+        .product(name: "TinyTreeUI", package: "TinyTree"),
+      ]
+    ),
+    .testTarget(name: "TinyConsoleUITests", dependencies: ["TinyConsoleUI"]),
   ]
 )

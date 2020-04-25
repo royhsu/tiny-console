@@ -1,7 +1,7 @@
 # TinyConsole
 
-TinyConsole allows you to embed the console into an app, happy debugging. It's quite useful
-to use in-app console when working with SwiftUI live previews or debugging on real devices.
+TinyConsole allows you to embed console into an app, happy debugging. It's quite useful
+to use in-app console when working with SwiftUI live preview or debugging on real devices.
 
 ## Installation
 
@@ -18,48 +18,13 @@ Add the package to your dependencies.
 To understand how TinyConsole works, you must look at ConsoleLoggingStore. It's the 
 source of truth for consoles. 
 
-### Basics
+Since TinyConsole relies on SwiftLog to integrate different logging services, make sure you have understood how to use [SwiftLog](https://github.com/apple/swift-log).
 
-First, you can access the default logging store.
-
-```swift
-import TinyConsole
-import TinyConsoleCore
-
-ConsoleLoggingStore.default // the default logging store.
-```
-
-Embed your content view into a console with `console(enabled:)` modifier.
-
-```swift
-ContentView()
-  .console(enabled: true) // embed with a console.
-```
-Next, don't forget to inject the logging store with `environmentObject(_:)` modifier.
-
-```swift
-ContentView()
-  .console(enabled: true)
-  .environmentObject(ConsoleLoggingStore.default) // inject the default logging store.
-```
-Now, you can log any message by calling `write(_:)` from the logging store, and messages will appear in the console.
-
-```swift
-ConsoleLoggingStore.default.write("Hello World")
-```
-
-### SwiftLog Integration
-
-Learn more about [SwiftLog](https://github.com/apple/swift-log).
-
-You can also integrate SwiftLog to provide multiple logging services via `TinyConsoleSwiftLog` module.
-
-First, bootstrap your logging services at the beginning of your program. Take `SceneDelegate` as the example.
+The following snippet demonstrates how to bootstrap our ConsoleLoggingStore as a logging service at the beginning of an app.
 
 ```swift
 import Logging
 import TinyConsoleCore
-import TinyConsoleSwiftLog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
@@ -73,14 +38,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     // 2. Register the default logging store into the logging system.
     LoggingSystem.bootstrap { label in
-      ConsoleLogHandler(label: label, log: logging.write)
+      ConsoleLogHandler(label: label, log: logging.log)
     }
 
     if let windowScene = scene as? UIWindowScene {
-      // 3. Don't forget inject the default logging store.
+
       let contentView = ContentView()
-        .console(enabled: true)
-        .environmentObject(logging)
+        .console(enabled: true) // 3. Embed your content view with a console by using console(enabled:) modifier.
+        .environmentObject(logging) // 4. Don't forget inject the default logging store by using environmentObject(_:) modifier.
       let window = UIWindow(windowScene: windowScene)
 
       window.rootViewController = UIHostingController(rootView: contentView)
@@ -90,17 +55,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 }
 ```
-It's time to log some message! Instead of calling `write(:)`  directly from the default logging store, you should use the `logger` from environment values.
+
+Now, it's time to log some message! You can get a `logger` from environment values.
 
 ```swift
-import Logging
 import TinyConsoleCore
-import TinyConsoleSwiftLog
+import TinyConsoleUI
 
 struct ContentView: View {
   @EnvironmentObject
   var logging: ConsoleLoggingStore
-  @Environment(\.logger) // Get a logger from environment values.
+  @Environment(\.logger) // 1. Get a logger from environment values.
   var logger
 
   var body: some View {
@@ -110,7 +75,7 @@ struct ContentView: View {
   }
 
   func log() {
-    // Log your message!
+    // 2. Log your message!
     logger.trace("Hello World")
   }
 }

@@ -6,10 +6,8 @@
 //  Copyright © 2020 TinyWorld. All rights reserved.
 //
 
-import Logging
 import SwiftUI
 import TinyConsoleCore
-import TinyConsoleSwiftLog
 
 struct AllExamples: View {
   @EnvironmentObject
@@ -19,13 +17,10 @@ struct AllExamples: View {
     Example(
       title: "Basics",
       body: AnyView(
-        BasicsExample()
-          .console(enabled: true))),
-    Example(
-      title: "Integrate with SwiftLog",
-      body: AnyView(
-        IntegrateSwiftLogExample()
-          .console(enabled: true))),
+        LogEditor()
+          .console(enabled: true)
+      )
+    ),
   ]
 
   var body: some View {

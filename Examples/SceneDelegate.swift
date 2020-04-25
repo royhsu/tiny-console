@@ -9,7 +9,6 @@
 import Logging
 import SwiftUI
 import TinyConsoleCore
-import TinyConsoleSwiftLog
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -24,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     // 2. Register the default logging store into the logging system.
     LoggingSystem.bootstrap { label in
-      ConsoleLogHandler(label: label, log: logging.write)
+      ConsoleLogHandler(label: label, log: logging.log)
     }
 
     if let windowScene = scene as? UIWindowScene {

@@ -9,6 +9,8 @@
 
 import SwiftUI
 import TinyConsoleCore
+import TinyTreeCore
+import TinyTreeUI
 
 #warning("TODO: [Priority: high] scroll to the bottom after the log display is updated.")
 #warning("TODO: [Priority: high] log should be selectable and copyable.")
@@ -28,7 +30,7 @@ struct Console<Embedded>: View where Embedded: View {
         Spacer()
         HStack {
           Button(action: logging.clearDisplay) {
-            Image(systemName: "trash.fill")
+            clear
               .foregroundColor(Color.black)
           }
         }
@@ -37,37 +39,42 @@ struct Console<Embedded>: View where Embedded: View {
         .background(Color.yellow)
     }
   }
+  
+  private var clear: some View {
+    #if os(macOS)
+    return AnyView(Text("Clear"))
+    #elseif os(iOS)
+    return AnyView(Image(systemName: "trash.fill"))
+    #endif
+  }
 
   private var foreground: some View {
     ZStack {
       Rectangle()
         .fill(Color.white)
-
       foregroundContent
     }
   }
 
+  private var placeholder: some View {
+    VStack {
+      Spacer()
+      Text("Empty")
+        .foregroundColor(Color.gray)
+      Spacer()
+    }
+  }
+  
   private var foregroundContent: some View {
     logging.display.isEmpty
-      ? AnyView(
-        VStack(spacing: 0.0) {
-          Spacer()
-          Text("Empty")
-            .foregroundColor(Color.gray)
-          Spacer()
-        }
-      )
+      ? AnyView(placeholder)
       : AnyView(
-        ScrollView(showsIndicators: true) {
-          ZStack {
-            Rectangle()
-              .fill(Color.clear)
-
-            HStack(spacing: 0.0) {
-              Text(logging.display)
-              Spacer()
-            }
-              .padding()
+        List(logging.display) { log in
+          NavigationLink(
+            destination: LogDetail(log: log)
+            .navigationBarTitle("Inspector")
+          ) {
+            Line(log: log)
           }
         }
       )

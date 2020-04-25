@@ -9,6 +9,15 @@
           "revision": "74d7b91ceebc85daf387ebb206003f78813f71aa",
           "version": "1.2.0"
         }
+      },
+      {
+        "package": "TinyTree",
+        "repositoryURL": "https://github.com/royhsu/tiny-tree.git",
+        "state": {
+          "branch": "master",
+          "revision": "87d1d123297bc842f1b1f7bf23fd464696d73f78",
+          "version": null
+        }
       }
     ]
   },

@@ -17,7 +17,11 @@ struct ConsoleModifier: ViewModifier {
 
   func body(content: Content) -> some View {
     enabled
-      ? AnyView(Console { content })
+      ? AnyView(
+        Console {
+          content
+        }
+      )
       : AnyView(content)
   }
 }
