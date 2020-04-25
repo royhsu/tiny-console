@@ -13,7 +13,7 @@ import TinyTreeUI
 struct LogDetail: View {
   private let log: Log
   @ObservedObject
-  var subtree: SubtreeStore<Atomic>
+  var subtree: SubtreeStore<Atom>
   
   var body: some View {
     List {
