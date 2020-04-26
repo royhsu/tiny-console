@@ -11,7 +11,8 @@ import SwiftUI
 import TinyConsoleCore
 
 struct Line: View {
-  var log: Log
+  @ObservedObject
+  var log: LogStore
   
   var body: some View {
     Text(formattedMessage)

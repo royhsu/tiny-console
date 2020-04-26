@@ -11,7 +11,7 @@ import TinyConsoleCore
 
 struct AllExamples: View {
   @EnvironmentObject
-  var logging: ConsoleLoggingStore
+  var console: ConsoleStore
 
   private var examples = [
     Example(
@@ -44,6 +44,6 @@ struct AllExamples: View {
 struct ALLExamples_Previews: PreviewProvider {
   static var previews: some View {
     AllExamples()
-      .environmentObject(ConsoleLoggingStore.default)
+      .environmentObject(ConsoleStore.default)
   }
 }

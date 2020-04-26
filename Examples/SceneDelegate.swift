@@ -18,18 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     _ scene: UIScene,
     willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions
   ) {
-    // 1. Get the default logging store.
-    let logging = ConsoleLoggingStore.default
+    // 1. Get the default console store.
+    let console = ConsoleStore.default
 
-    // 2. Register the default logging store into the logging system.
+    // 2. Register the default console store into the logging system.
     LoggingSystem.bootstrap { label in
-      ConsoleLogHandler(label: label, log: logging.log)
+      ConsoleLogHandler(label: label, log: console.log)
     }
 
     if let windowScene = scene as? UIWindowScene {
-      // 3. Don't forget inject the default logging store.
+      // 3. Don't forget inject the default console store.
       let contentView = AllExamples()
-        .environmentObject(logging)
+        .environmentObject(console)
       let window = UIWindow(windowScene: windowScene)
 
       window.rootViewController = UIHostingController(rootView: contentView)

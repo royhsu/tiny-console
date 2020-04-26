@@ -11,9 +11,8 @@ import TinyTreeCore
 import TinyTreeUI
 
 struct LogDetail: View {
-  private let log: Log
   @ObservedObject
-  var subtree: SubtreeStore<Atom>
+  var log: LogStore
   
   var body: some View {
     List {
@@ -26,7 +25,7 @@ struct LogDetail: View {
       }
       Section(header: Text("Metadata")) {
         Subtree(
-          subtree,
+          log.metadata,
           content: { subtree in
             SubtreeProperty(subtree)
           },
@@ -39,13 +38,22 @@ struct LogDetail: View {
   }
 }
 
-extension LogDetail {
-  init(log: Log) {
-    self.init(
-      log: log,
-      subtree:SubtreeStore(
-        value: .string("metadata"),
-        children: Primitive(metadata: log.metadata)
+// MARK: - Previews
+
+struct LogDetail_Previews: PreviewProvider {
+  static var previews: some View {
+    LogDetail(
+      log: LogStore(
+        source: "com.example.Demo",
+        level: .trace,
+        message: "Prodcut fetced!",
+        metadata: [
+          "id": "1",
+          "name": "Chocolate Cake",
+        ],
+        file: #file,
+        function: #function,
+        line: #line
       )
     )
   }

@@ -11,8 +11,7 @@ import TinyConsoleCore
 
 struct ConsoleModifier: ViewModifier {
   @EnvironmentObject
-  var logging: ConsoleLoggingStore
-
+  var console: ConsoleStore
   var enabled: Bool
 
   func body(content: Content) -> some View {
@@ -27,7 +26,7 @@ struct ConsoleModifier: ViewModifier {
 }
 
 extension View {
-  /// Automatic wrapping content within a console and passing logging to environment objects.
+  /// Automatic wrapping content within a console and passing console store to environment objects.
   ///
   /// - Parameter enabled: Whether to enable the console. The console should be enabled in DEBUG
   /// only, but not in RELEASE mode.

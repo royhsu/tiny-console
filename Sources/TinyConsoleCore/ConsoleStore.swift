@@ -1,5 +1,5 @@
 //
-//  ConsoleLoggingStore.swift
+//  ConsoleStore.swift
 //  
 //
 //  Created by Roy Hsu on 2020/3/27.
@@ -8,21 +8,21 @@
 import Combine
 import Logging
 
-public final class ConsoleLoggingStore: ObservableObject {
+public final class ConsoleStore: ObservableObject {
   private var logStream: AnyCancellable?
   /// A queue for logs to be piped into history.
-  private let logQueue = PassthroughSubject<Log, Never>()
+  private let logQueue = PassthroughSubject<LogStore, Never>()
   /// Current displayed logs.
   @Published
-  public private(set) var display = [Log]()
+  public private(set) var display = [LogStore]()
   /// All the logs are preserved in the history.
   @Published
-  private var history = [Log]()
+  private var history = [LogStore]()
   
   init() { self.setUp() }
 }
 
-extension ConsoleLoggingStore {
+extension ConsoleStore {
   private func setUp() {
     logStream = logQueue.sink { [weak self] log in
       self?.history.append(log)
@@ -31,7 +31,7 @@ extension ConsoleLoggingStore {
   }
 }
 
-extension ConsoleLoggingStore {
+extension ConsoleStore {
   public func log(
     from source: String,
     level: Logger.Level,
@@ -42,7 +42,7 @@ extension ConsoleLoggingStore {
     line: UInt
   ) {
     logQueue.send(
-      Log(
+      LogStore(
         source: source,
         level: level,
         message: message,
@@ -58,6 +58,6 @@ extension ConsoleLoggingStore {
   public func clearDisplay() { display = [] }
 }
 
-extension ConsoleLoggingStore {
-  public static let `default` = ConsoleLoggingStore()
+extension ConsoleStore {
+  public static let `default` = ConsoleStore()
 }

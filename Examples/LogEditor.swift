@@ -14,7 +14,7 @@ struct LogEditor: View {
   @State
   private var message = ""
   @EnvironmentObject
-  var logging: ConsoleLoggingStore
+  var console: ConsoleStore
   @Environment(\.logger)
   var logger
 
@@ -57,6 +57,6 @@ struct LogEditor_Previews: PreviewProvider {
   static var previews: some View {
     LogEditor()
       .console(enabled: true)
-      .environmentObject(ConsoleLoggingStore.default)
+      .environmentObject(ConsoleStore.default)
   }
 }
