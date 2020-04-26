@@ -101,7 +101,7 @@ struct ContentView_Previews: PreviewProvider {
       ConsoleLogHandler(label: label, log: console.log)
     }
 
-    return IntegrateSwiftLogExample()
+    return ContentView()
       .environmentObject(console)
   }
 }
