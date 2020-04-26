@@ -94,11 +94,11 @@ future if we find a solution for this problem.
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     // Custom console stores in different places cause the problem.
-    let console = ConsoleLoggingStore()
+    let console = ConsoleStore()
 
     // `bootstrap(_:)` must be called only once.
     LoggingSystem.bootstrap { label in
-      ConsoleLogHandler(label: label, log: console.write)
+      ConsoleLogHandler(label: label, log: console.log)
     }
 
     return IntegrateSwiftLogExample()
