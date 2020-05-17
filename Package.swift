@@ -20,7 +20,10 @@ let package = Package(
   targets: [
     .target(
       name: "TinyConsoleCore",
-      dependencies: [.product(name: "Logging", package: "swift-log")]
+      dependencies: [
+        .product(name: "TinyTreeCore", package: "TinyTree"),
+        .product(name: "Logging", package: "swift-log"),
+      ]
     ),
     .target(
       name: "TinyConsoleUI",
