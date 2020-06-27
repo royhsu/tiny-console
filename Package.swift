@@ -1,5 +1,4 @@
-// swift-tools-version:5.2
-
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -10,7 +9,7 @@ let package = Package(
     .library(name: "TinyConsoleUI", targets: ["TinyConsoleUI"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
+    .package(url: "https://github.com/apple/swift-log.git", from: "1.2.0"),
     .package(
       name: "TinyTree",
       url: "https://github.com/royhsu/tiny-tree.git",
@@ -33,6 +32,5 @@ let package = Package(
         .product(name: "TinyTreeUI", package: "TinyTree"),
       ]
     ),
-    .testTarget(name: "TinyConsoleUITests", dependencies: ["TinyConsoleUI"]),
   ]
 )
